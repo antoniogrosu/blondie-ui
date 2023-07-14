@@ -3,17 +3,50 @@ import Despre from "./components/Despre";
 import Contact from "./components/Contact";
 import Proiecte from "./components/Proiecte";
 import Doneaza from "./components/Doneaza";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function App() {
   const [url, setUrl] = useState("index");
   const [menu, setMenu] = useState(false);
+  const [navbarClass, setNavbarClass] = useState(
+    "z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300"
+  );
+  useEffect(() => {
+    let prevScrollPos = window.pageYOffset;
+
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+
+      if (currentScrollPos > prevScrollPos) {
+        // Scrolling down
+        setNavbarClass(
+          "z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300 hidden"
+        );
+      } else {
+        // Scrolling up or not scrolling
+        setNavbarClass(
+          "z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300"
+        );
+      }
+
+      prevScrollPos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div>
-      <nav className="z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300">
+      <nav className={navbarClass}>
         <div
           className="w-5/12 md:w-2/12 cursor-pointer"
           onClick={() => {
             setUrl("index");
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
           }}
         >
           <img
@@ -27,6 +60,10 @@ function App() {
             className="transition hover:underline hover:text-pink-500 "
             onClick={() => {
               setUrl("despre");
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
             }}
           >
             Despre Noi
@@ -35,6 +72,10 @@ function App() {
             className="transition hover:underline hover:text-pink-500"
             onClick={() => {
               setUrl("proiecte");
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
             }}
           >
             Proiecte
@@ -43,6 +84,10 @@ function App() {
             className="transition hover:underline hover:text-pink-500"
             onClick={() => {
               setUrl("contact");
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
             }}
           >
             Contact
@@ -51,37 +96,49 @@ function App() {
             className="border-2 border-pink-50/100 hover:border-pink-500 transition bg-gradient-to-r from-blue-200 to-pink-600 px-4 py-2 rounded-full"
             onClick={() => {
               setUrl("doneaza");
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
             }}
           >
             Doneaza
           </button>
         </div>
-        <div className="md:hidden">
-          <p
-            className="text-sm text-gray-50 poppins"
-            onClick={() => setMenu(!menu)}
-          >
-            menu
-          </p>
+        <div
+          className="flex items-center md:hidden flex-col gap-1"
+          onClick={() => setMenu(!menu)}
+        >
+          <div className="h-1 w-8 bg-pink-50 mb-1 rounded-full"></div>
+          <div className="h-1 w-8 bg-pink-50 mb-1 rounded-full"></div>
         </div>
       </nav>
       {menu && (
-        <div
-          className="w-full absolute h-screen bg-gray-950/50"
-          onClick={() => setMenu(!menu)}
-        >
-          <div className=" bg-pink-300 px-8 py-4 w-full">
+        <div className="z-10 fixed w-full">
+          <div className=" bg-pink-300 px-8 py-4 w-full flex item-center justify-between">
             <div
-              className="w-5/12 md:w-2/12 cursor-pointer"
+              className=" w-1/2"
               onClick={() => {
                 setUrl("index");
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
               }}
             >
-              <img
-                src={"/Logo.svg"}
-                alt="Blondie Logo"
-                className="w-full object-cover"
-              />
+              <div className=" md:w-2/12 cursor-pointer">
+                <img
+                  src={"/Logo.svg"}
+                  alt="Blondie Logo"
+                  className="w-full object-cover"
+                />
+              </div>
+            </div>
+            <div
+              className=" flex items-center justify-center"
+              onClick={() => setMenu(!menu)}
+            >
+              <span className="text-4xl poppins text-pink-50">&times;</span>
             </div>
           </div>
           <div className="border-b-8  border-pink-500 z-10  w-full p-8 rounded-b-3xl bg-pink-300 poppins font-semibold text-gray-50 flex flex-col gap-8 text-center">
@@ -90,6 +147,10 @@ function App() {
               onClick={() => {
                 setUrl("despre");
                 setMenu(!menu);
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
               }}
             >
               Despre Noi
@@ -99,6 +160,10 @@ function App() {
               onClick={() => {
                 setUrl("proiecte");
                 setMenu(!menu);
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
               }}
             >
               Proiecte
@@ -108,6 +173,10 @@ function App() {
               onClick={() => {
                 setUrl("contact");
                 setMenu(!menu);
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
               }}
             >
               Contact
@@ -117,6 +186,10 @@ function App() {
               onClick={() => {
                 setUrl("doneaza");
                 setMenu(!menu);
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
               }}
             >
               Doneaza

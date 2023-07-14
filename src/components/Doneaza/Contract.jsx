@@ -2,7 +2,7 @@ export default function Contract(props) {
   return (
     <div className="bg-pink-300/30 py-4 px-4 text-center rounded-2xl">
       <div className="border-t-1 border-gray-950/20 py-4">
-        <h3 className="text-xl text-pink-500 montserrat font-semibold mb-4">
+        <h3 className="text-xl text-pink-500 poppins font-semibold mb-4">
           Persoană {props.persoana}
         </h3>
         <p className="poppins text-gray-950">{props.instructiune}</p>
