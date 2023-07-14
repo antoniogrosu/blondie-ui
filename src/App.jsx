@@ -9,7 +9,7 @@ function App() {
   const [menu, setMenu] = useState(false);
   return (
     <div>
-      <nav className=" w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300">
+      <nav className="z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300">
         <div
           className="w-5/12 md:w-2/12 cursor-pointer"
           onClick={() => {
