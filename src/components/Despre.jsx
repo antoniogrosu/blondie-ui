@@ -1,6 +1,6 @@
-import Hero from "./Despre/Hero";
-import Detalii from "./Despre/Detalii";
-import Echipa from "./Despre/Echipa";
+import Hero from "./DesprePage/Hero";
+import Detalii from "./DesprePage/Detalii";
+import Echipa from "./DesprePage/Echipa";
 import Sponsors from "./Sponsors";
 function Despre() {
   return (

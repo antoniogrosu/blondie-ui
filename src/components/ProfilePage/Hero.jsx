@@ -38,21 +38,21 @@ function Hero() {
             <p className="text-sm text-green-300">Valid</p>
           </div>
         </div>
-        <div className="w-full bg-pink-50/60 rounded-md mt-4 px-2 flex items-center justify-evenly">
+        <div className="w-full bg-pink-50/60 rounded-md mt-4 p-2 flex items-center justify-evenly">
           <div className="flex items-center justify-start">
-            <div className="p-2 rounded-full bg-pink-50/60 poppins font-semibold">
+            <div className="p-1 rounded-full text-xs bg-pink-50/60 poppins font-semibold">
               RO
             </div>
-            <p className="ml-2 poppins text-sm text-gray-950 font-semibold">
+            <p className="ml-2 poppins text-xs text-gray-950 font-semibold">
               Bucuresti
             </p>
           </div>
-          <img src="way.svg" className="w-2/12" />
+          <img src="way.svg" className="md:w-2/12 w-1/12" />
           <div className="flex items-center justify-start">
-            <div className="p-2 rounded-full bg-pink-50/60 poppins font-semibold">
+            <div className="p-1 rounded-full text-xs bg-pink-50/60 poppins font-semibold">
               USA{" "}
             </div>
-            <p className="ml-2 poppins text-sm text-gray-950 font-semibold">
+            <p className="ml-2 poppins text-xs text-gray-950 font-semibold">
               Los Angeles
             </p>
           </div>

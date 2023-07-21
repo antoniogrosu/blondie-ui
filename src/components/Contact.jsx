@@ -1,4 +1,4 @@
-import Form from "./Contact/Form";
+import Form from "./ContactPage/Form";
 function Contact() {
   return (
     <div className="bg-pink-50 px-8 py-36 md:px-24">

@@ -1,13 +1,18 @@
-import Hero from "./Index/Hero";
-import Despre from "./Index/DespreSection";
-import Projects from "./Index/Projects";
-import Donate from "./Index/Donate";
+import Hero from "./IndexPage/Hero";
+import Despre from "./IndexPage/DespreSection";
+import Projects from "./IndexPage/Projects";
+import Donate from "./IndexPage/Donate";
 import Sponsors from "./Sponsors";
-function Index() {
+
+function Index({ onChange }) {
+  const index2 = (event) => {
+    onChange(event);
+  };
+
   return (
     <div>
-      <div className="bg-pink-50 px-8 pt-36 md:px-24">
-        <Hero />
+      <div className="bg-pink-50 px-4 pt-36 md:px-24">
+        <Hero onChange={index2} />
         <Despre />
       </div>
       <Projects />

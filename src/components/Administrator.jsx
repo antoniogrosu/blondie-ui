@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Pacienti from "./Administrator/Pacienti.jsx";
-import Zboruri from "./Administrator/Zboruri.jsx";
+import Pacienti from "./AdministratorPage/Pacienti.jsx";
+import Zboruri from "./AdministratorPage/Zboruri.jsx";
 
 function Administrator() {
   const [zboruri, setZboruri] = useState(false);

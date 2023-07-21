@@ -19,7 +19,7 @@ function MomenteRoz() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-8  ">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
         <MomentRoz
           title="In ziua de Craciun, Rares zboara la Geneva"
           description="Zborul 124"
