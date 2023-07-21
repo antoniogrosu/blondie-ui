@@ -1,11 +1,12 @@
-import Lottie from "lottie-react";
-import animationData from "./loading.json";
+import Hero from "./ProiectePage/Hero";
+import ProiecteSection from "./ProiectePage/ProiecteSection";
+import MomenteRoz from "./ProiectePage/MomenteRoz";
 function Proiecte() {
   return (
-    <div className="bg-pink-50 px-8 py-36 md:px-24 montserrat text-4xl">
-      <div className="w-4/12 mx-auto">
-        <Lottie animationData={animationData} />
-      </div>
+    <div className="bg-pink-50 px-8 py-36 md:px-24 montserrat">
+      <Hero />
+      <ProiecteSection />
+      <MomenteRoz />
     </div>
   );
 }
