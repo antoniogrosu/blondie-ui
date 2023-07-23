@@ -26,7 +26,7 @@ function Hero({ onChange }) {
             clickHandler(4);
             window.scrollTo({
               top: 0,
-              behavior: smooth,
+              behavior: "smooth",
             });
           }}
         >

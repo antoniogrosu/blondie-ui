@@ -10,7 +10,7 @@ import Primesc from "./components/Primesc";
 import Profile from "./components/Profile";
 import Administrator from "./components/Administrator";
 function App() {
-  const [url, setUrl] = useState(0);
+  const [url, setUrl] = useState(7);
 
   const index = (event) => {
     setUrl(event);

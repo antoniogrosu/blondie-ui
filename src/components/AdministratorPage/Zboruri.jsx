@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function Zboruri({ flights }) {
   const [selectedFlight, setSelectedFlight] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleClick = (flight) => {
     setSelectedFlight(flight);
@@ -10,6 +11,17 @@ function Zboruri({ flights }) {
   const handleGoBack = () => {
     setSelectedFlight(null);
   };
+
+  //functia search
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  //vector zboruri
+  const filteredFlights = flights.filter((flight) => {
+    const number = `${flight.id}`.toLowerCase(); // numar zbor
+    return number.includes(searchQuery.toLowerCase());
+  });
 
   const renderFlightDetails = () => {
     if (selectedFlight) {
@@ -47,22 +59,32 @@ function Zboruri({ flights }) {
   const renderFlightsList = () => {
     if (!selectedFlight) {
       return (
-        <div className="grid gap-4 grid-cols-1 md:grid-cols-3 bg-pink-300/50 p-8 rounded-xl border-pink-300 border-2">
-          {flights.map((flight, index) => (
-            <div
-              className="hover:bg-pink-100 ease-in-out duration-100 cursor-pointer bg-pink-50 rounded-md p-4"
-              key={index}
-              onClick={() => handleClick(flight)}
-            >
-              <p className="poppins text-2xl font-semibold mb-4 text-gray-950">
-                Flight ID: {flight.id}
-              </p>
-              <p className="poppins underline underline-offset-4 text-gray-950">
-                Date: {flight.date}
-              </p>
-            </div>
-          ))}
-        </div>
+        <>
+          <input
+            className=" w-full md:w-3/12 mb-8  border-2 rounded-full border-pink-300 py-2 px-4 poppins placeholder:poppins placeholder:text-gray-950/50"
+            type="text"
+            placeholder="Cautati Zbor"
+            value={searchQuery}
+            onChange={handleSearch}
+          ></input>
+
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-3 bg-pink-300/50 p-8 rounded-xl border-pink-300 border-2">
+            {filteredFlights.map((flight, index) => (
+              <div
+                className="hover:bg-pink-100 ease-in-out duration-100 cursor-pointer bg-pink-50 rounded-md p-4"
+                key={index}
+                onClick={() => handleClick(flight)}
+              >
+                <p className="poppins text-2xl font-semibold mb-4 text-gray-950">
+                  Flight ID: {flight.id}
+                </p>
+                <p className="poppins underline underline-offset-4 text-gray-950">
+                  Date: {flight.date}
+                </p>
+              </div>
+            ))}
+          </div>
+        </>
       );
     }
   };

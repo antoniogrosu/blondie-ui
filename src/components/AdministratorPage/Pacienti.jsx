@@ -4,6 +4,7 @@ function Pacienti({ people }) {
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [accepted, setAccepted] = useState(false);
   const [originalAccepted, setOriginalAccepted] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleClick = (person) => {
     setSelectedPerson(person);
@@ -26,6 +27,19 @@ function Pacienti({ people }) {
     setSelectedPerson(null);
     // trebuie si refresh cred
   };
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredPeople = people.filter((person) => {
+    const name = `${person.name} ${person.surname}`.toLowerCase(); // prima oara nume familie
+    const name2 = `${person.surname} ${person.name}`.toLowerCase(); // prima
+    return (
+      name.includes(searchQuery.toLowerCase()) ||
+      name2.includes(searchQuery.toLowerCase())
+    );
+  });
 
   const renderPersonDetails = () => {
     if (selectedPerson) {
@@ -92,34 +106,44 @@ function Pacienti({ people }) {
   const renderPeopleList = () => {
     if (!selectedPerson) {
       return (
-        <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-12 cursor-pointer">
-          {people.map((person, index) => (
-            <div
-              key={index}
-              onClick={() => handleClick(person)}
-              className={`${
-                person.accepted ? "accepted" : "declined"
-              }  p-8 rounded-2xl bg-pink-300/50 border-2 border-pink-300 poppins text-gray-950`}
-            >
-              <p className="mb-4">Name: {person.name}</p>
-              <p className="mb-4">Surname: {person.surname}</p>
-              <p className="mb-4">Age: {person.age}</p>
-              <p className="py-4 border-y-2 border-pink-50/40 mt-4 flex items-center justify-between">
-                Status:{" "}
-                <span
-                  className={`${
-                    person.accepted
-                      ? "bg-green-300/50 border-2 border-green-300 rounded-full px-6 py-1 border-full text-green-900 font-semibold"
-                      : "bg-red-300/50 border-2 border-red-600 rounded-full px-6 py-1 border-full text-red-600 font-semibold"
-                  }`}
-                >
-                  {" "}
-                  {person.accepted ? "Accepted" : "Declined"}
-                </span>
-              </p>
-            </div>
-          ))}
-        </div>
+        <>
+          <input
+            className="w-full md:w-1/4 mt-4 border-2 rounded-full border-pink-300 py-2 px-4 poppins placeholder:poppins placeholder:text-gray-950/50"
+            type="text"
+            placeholder="Cautati Pacient"
+            value={searchQuery}
+            onChange={handleSearch}
+          ></input>
+
+          <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-12 cursor-pointer">
+            {filteredPeople.map((person, index) => (
+              <div
+                key={index}
+                onClick={() => handleClick(person)}
+                className={`${
+                  person.accepted ? "accepted" : "declined"
+                }  p-8 rounded-2xl bg-pink-300/50 border-2 border-pink-300 poppins text-gray-950`}
+              >
+                <p className="mb-4">Name: {person.name}</p>
+                <p className="mb-4">Surname: {person.surname}</p>
+                <p className="mb-4">Age: {person.age}</p>
+                <p className="py-4 border-y-2 border-pink-50/40 mt-4 flex items-center justify-between">
+                  Status:{" "}
+                  <span
+                    className={`${
+                      person.accepted
+                        ? "bg-green-300/50 border-2 border-green-300 rounded-full px-6 py-1 border-full text-green-900 font-semibold"
+                        : "bg-red-300/50 border-2 border-red-600 rounded-full px-6 py-1 border-full text-red-600 font-semibold"
+                    }`}
+                  >
+                    {" "}
+                    {person.accepted ? "Accepted" : "Declined"}
+                  </span>
+                </p>
+              </div>
+            ))}
+          </div>
+        </>
       );
     }
   };

@@ -4,12 +4,12 @@ function Footer({ onChange }) {
   };
 
   return (
-    <footer className="cursor-pointer p-8 lg:p-24 flex lg:flex-row flex-col lg:items-center justify-between bg-pink-300">
-      <div className="lg:w-1/12   ">
+    <footer className="cursor-pointer p-8 md:p-24 flex md:flex-row flex-col md:items-center justify-between bg-pink-300">
+      <div className="md:w-3/12   ">
         <img src="/Logo.svg" alt="Logo Blondie" className="object-cover" />
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-1 w-full gap-8 mt-12">
-        <div className="flex flex-col lg:items-center items-left">
+      <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-8 mt-12">
+        <div className="flex flex-col md:items-center items-left">
           <h3 className="text-gray-950 font-bold tracking-widest text-2xl  montserrat ">
             Info
           </h3>
@@ -52,7 +52,7 @@ function Footer({ onChange }) {
             </p>
           </div>
         </div>
-        <div className="flex flex-col lg:items-center items-left">
+        <div className="flex flex-col md:items-center items-left">
           <h3 className="text-gray-950 font-bold tracking-widest text-xl uppercase montserrat">
             Proiecte
           </h3>
@@ -95,7 +95,7 @@ function Footer({ onChange }) {
             </p>
           </div>
         </div>
-        <div className="flex flex-col lg:items-center items-left">
+        <div className="flex flex-col md:items-center items-left">
           <h3 className="text-gray-950 font-bold tracking-widest text-xl uppercase montserrat">
             Socials
           </h3>

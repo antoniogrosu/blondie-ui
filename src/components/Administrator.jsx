@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Pacienti from "./AdministratorPage/Pacienti.jsx";
 import Zboruri from "./AdministratorPage/Zboruri.jsx";
-
+import ZborNou from "./AdministratorPage/ZborNou.jsx";
 function Administrator() {
   const [zboruri, setZboruri] = useState(false);
   const [pacienti, setPacienti] = useState(false);
   const [unselected, setUnselected] = useState(true);
+  const [zborNou, setZborNou] = useState(false);
   const peopleData = [
     {
       name: "Lindicel",
@@ -79,17 +80,50 @@ function Administrator() {
       )}
       {!unselected && pacienti && (
         <>
-          <h1 className="montserrat text-4xl font-semibold">Pacienti</h1>
+          <div className="flex items-center">
+            <img
+              src="/arrow.svg"
+              alt="go back"
+              className="mr-8 cursor-pointer"
+              onClick={() => {
+                setUnselected(true);
+                setPacienti(false);
+              }}
+            />
+            <h1 className="montserrat text-4xl font-semibold">Pacienti</h1>
+          </div>
           <Pacienti people={peopleData} />
         </>
       )}
       {!unselected && zboruri && (
         <>
-          <h1 className="montserrat text-4xl font-semibold">Zboruri</h1>
-          <button className="flex items-center justify-between rounded-md hover:bg-pink-700 ease-in-out duration-100 text-pink-50 px-4 py-2 my-8 bg-pink-500 poppins font-semibold">
-            <span className="text-2xl mr-2">+</span> Zbor nou
-          </button>
-          <Zboruri flights={flightsData} />
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center">
+              <img
+                src="/arrow.svg"
+                alt="go back"
+                className="mr-8 cursor-pointer"
+                onClick={() => {
+                  setUnselected(true);
+                  setZboruri(false);
+                }}
+              />
+              <h1 className="montserrat text-4xl font-semibold">Zboruri</h1>
+            </div>
+            <button
+              className="flex items-center justify-between rounded-md hover:bg-pink-700 ease-in-out duration-100 text-pink-50 px-4 py-2  bg-pink-500 poppins font-semibold"
+              onClick={() => {
+                setZborNou(!zborNou);
+              }}
+            >
+              <span className={`text-2xl ${zborNou ? "" : "mr-2"}`}>
+                {zborNou ? "x" : "+"}
+              </span>
+              {!zborNou && " Zbor nou"}
+            </button>
+          </div>
+          {!zborNou && <Zboruri flights={flightsData} />}
+          {zborNou && <ZborNou people={peopleData} />}
         </>
       )}
     </div>
