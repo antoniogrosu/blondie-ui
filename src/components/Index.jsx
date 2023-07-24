@@ -11,7 +11,7 @@ function Index({ onChange }) {
 
   return (
     <div>
-      <div className="bg-pink-50 px-4 pt-36 md:px-24">
+      <div className="bg-pink-50 px-8 pt-36 md:px-24">
         <Hero onChange={index2} />
         <Despre />
       </div>
