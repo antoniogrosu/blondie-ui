@@ -3,7 +3,7 @@ function Hero({ onChange }) {
     onChange(number);
   };
   return (
-    <div className="flex items-center px-8  md:pb-24 pb-16 justify-between">
+    <div className="flex items-center  md:pb-24 pb-16 justify-between">
       <div>
         <h1 className="montserrat text-4xl text-gray-950 font-semibold md:w-8/12">
           Copiii grav bolnavi nu au timp.
