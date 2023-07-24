@@ -12,14 +12,11 @@ function ZborNou({ people }) {
 
   function handlePacient(pacientName) {
     setPacientiZbor((prevPacientiZbor) => {
-      // Check if the pacientName already exists in the array
       const isPacientAlreadySelected = prevPacientiZbor.includes(pacientName);
 
       if (isPacientAlreadySelected) {
-        // Remove the pacientName from the array using filter
         return prevPacientiZbor.filter((name) => name !== pacientName);
       } else {
-        // Add the pacientName to the array
         return [...prevPacientiZbor, pacientName];
       }
     });
@@ -59,7 +56,7 @@ function ZborNou({ people }) {
               return (
                 <p
                   key={Math.floor(Math.random() * 10000)}
-                  className={`mt-2 p-2 cursor-pointer bg-gray-950/10 rounded-full text-center poppins`}
+                  className={`mt-2 p-2 cursor-pointer bg-gray-950/10 rounded-xl text-center poppins`}
                   onClick={() => {
                     handlePacient(pacient.name);
                   }}
@@ -70,7 +67,11 @@ function ZborNou({ people }) {
             })}
           </div>
         </div>
-        <div>
+        <div
+          className={`bg-pink-500/50 px-4 py-6 rounded-2xl ${
+            pacientiZbor.length == 0 ? "bg-pink-500/10" : ""
+          }`}
+        >
           <h3 className="text-xl poppins font-semibold text-gray-950 gap-2">
             Pacientii Selectati
           </h3>
@@ -78,12 +79,18 @@ function ZborNou({ people }) {
             {pacientiZbor &&
               pacientiZbor.map((pacient) => {
                 return (
-                  <p className="bg-pink-300 p-4 rounded-xl text-center poppins text-gray-50 font-semibold">
+                  <p className="bg-pink-50 p-2 rounded-xl text-center poppins text-gray-950 font-semibold">
                     {pacient}
                   </p>
                 );
               })}
           </div>
+          {pacientiZbor.length == 0 && (
+            <h3 className="text-center w-full poppins  text-lg text-gray-950">
+              {" "}
+              Selectati un pacient din lista alaturata
+            </h3>
+          )}
         </div>
       </div>
     </form>

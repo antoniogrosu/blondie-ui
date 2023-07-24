@@ -14,7 +14,7 @@ function Primesc({ onChange }) {
           <Lottie animationData={animationData} />
         </div>
       </div>
-      <div className="md:w-6/12 w-full p-8 bg-pink-500 rounded-md">
+      <div className="md:w-6/12 lg:w-4/12 w-full p-8 bg-pink-500 rounded-md">
         <h3 className="poppins font-semibold text-lg text-pink-50">Logare</h3>
         <form className="w-full flex flex-col gap-8 mt-8">
           <div className="w-full">

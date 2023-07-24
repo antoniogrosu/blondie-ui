@@ -56,8 +56,10 @@ function Hero() {
         șansa la o dezvoltare maximă din punct de vedere fizic, emoțional și
         intelectual.
       </p>
-      <div className="w-1/12 mx-auto mt-4">
-        <Lottie animationData={animationData} />
+      <div className="md:mx-auto md:w-4/12">
+        <div className="w-2/12 md:w-1/12 mx-auto mt-4">
+          <Lottie animationData={animationData} />
+        </div>
       </div>
     </>
   );

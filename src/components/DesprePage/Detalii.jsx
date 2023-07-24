@@ -28,7 +28,7 @@ export default function Detalii() {
           <Lottie animationData={animationData} />
         </div>
       </div>
-      <h1 className="text-pink-500 text-2xl montserrat font-semibold">
+      <h1 className="text-pink-500 text-4xl montserrat font-semibold">
         Noi credem că totul va fi roz ! Bine si roz !
       </h1>
     </div>

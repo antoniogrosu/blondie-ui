@@ -47,7 +47,7 @@ function Pacienti({ people }) {
         <div
           className={`${
             accepted ? "accepted" : "declined"
-          } bg-pink-300/50 border-2 border-pink-300 my-8 p-8 rounded-xl  poppins`}
+          } bg-pink-300/50 border-2 border-pink-300 my-8 p-8 rounded-xl  poppins w-5/12 mx-auto`}
         >
           <h2 className="text-xl my-2 poppins mb-8 underline underline-offset-4">
             Detailii-{" "}

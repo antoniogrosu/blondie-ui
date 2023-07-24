@@ -8,7 +8,6 @@ function Despre() {
       <Hero />
       <Detalii />
       <Echipa />
-      <Sponsors />
     </div>
   );
 }

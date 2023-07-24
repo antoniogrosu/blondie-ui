@@ -5,7 +5,7 @@ function Footer({ onChange }) {
 
   return (
     <footer className="cursor-pointer p-8 md:p-24 flex md:flex-row flex-col md:items-center justify-between bg-pink-300">
-      <div className="md:w-3/12   ">
+      <div className="md:w-2/12 w-5/12">
         <img src="/Logo.svg" alt="Logo Blondie" className="object-cover" />
       </div>
       <div className="grid md:grid-cols-3 grid-cols-1 w-full gap-8 mt-12">

@@ -9,7 +9,10 @@ export default function Contract(props) {
       </div>
       <div className="flex items-center justify-center border-t-2 border-gray-950/20 py-4">
         <p className="poppins mr-2 text-gray-950">Descarca {props.document}</p>
-        <img src="/download.svg" className="w-1/12 cursor-pointer" />
+        <img
+          src="/download.svg"
+          className="w-2/12 h-2/12 md:w-8 md:h-8 cursor-pointer"
+        />
       </div>
       <div className="border-t-2 border-gray-950/20 py-4">
         <p className="text-gray-950 poppins">

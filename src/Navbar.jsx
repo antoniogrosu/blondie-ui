@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 function Navbar({ onChange }) {
   const [menu, setMenu] = useState(false);
   const [navbarClass, setNavbarClass] = useState(
-    "z-10 w-full fixed px-8 py-4 lg:px-24 lg:py-4 flex items-center justify-between font bg-pink-300"
+    "z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300"
   );
 
   const clickHandler = (number) => {
@@ -17,11 +17,11 @@ function Navbar({ onChange }) {
 
       if (currentScrollPos > prevScrollPos) {
         setNavbarClass(
-          "z-10 w-full fixed px-8 py-4 lg:px-24 lg:py-4 flex items-center justify-between font bg-pink-300 hidden"
+          "z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300 hidden"
         );
       } else {
         setNavbarClass(
-          "z-10 w-full fixed px-8 py-4 lg:px-24 lg:py-4 flex items-center justify-between font bg-pink-300"
+          "z-10 w-full fixed px-8 py-4 md:px-24 md:py-4 flex items-center justify-between font bg-pink-300"
         );
       }
 
@@ -37,7 +37,7 @@ function Navbar({ onChange }) {
     <div>
       <nav className={navbarClass}>
         <div
-          className="w-4/12 lg:w-2/12 cursor-pointer"
+          className="w-5/12 md:w-1/12 cursor-pointer"
           onClick={() => {
             clickHandler(0);
             window.scrollTo({
@@ -52,7 +52,7 @@ function Navbar({ onChange }) {
             className="w-full object-cover"
           />
         </div>
-        <div className="hidden text-xs lg:flex items-center justify-between w-8/12 poppins text-gray-50 cursor-pointer">
+        <div className="hidden text-sm md:flex items-center justify-between w-7/12 poppins text-gray-50 cursor-pointer">
           <p
             className="transition mr-2 hover:underline hover:text-pink-500 "
             onClick={() => {
@@ -101,7 +101,7 @@ function Navbar({ onChange }) {
           >
             Proiecte
           </p>
-          <div className="flex items-center text-xs">
+          <div className="flex items-center text-sm">
             <button
               className="border-2  border-pink-50 transition bg-gradient-to-r from-blue-400 to-blue-200 px-4 py-2 rounded-l-full"
               onClick={() => {
@@ -115,7 +115,7 @@ function Navbar({ onChange }) {
               Ofer Ajutor
             </button>
             <button
-              className="text-xs border-2 border-l-0 border-pink-50 transition bg-gradient-to-r from-blue-200 to-pink-400 px-4 py-2 rounded-r-full"
+              className="text-sm border-2 border-l-0 border-pink-50 transition bg-gradient-to-r from-blue-200 to-pink-400 px-4 py-2 rounded-r-full"
               onClick={() => {
                 clickHandler(5);
                 window.scrollTo({
@@ -129,7 +129,7 @@ function Navbar({ onChange }) {
           </div>
         </div>
         <div
-          className="flex items-center lg:hidden flex-col gap-1"
+          className="flex items-center md:hidden flex-col gap-1"
           onClick={() => setMenu(!menu)}
         >
           <div className="h-1 w-8 bg-pink-50 mb-1 rounded-full"></div>
@@ -149,7 +149,7 @@ function Navbar({ onChange }) {
                 });
               }}
             >
-              <div className=" lg:w-1/12 cursor-pointer">
+              <div className=" md:w-1/12 cursor-pointer">
                 <img
                   src={"/Logo.svg"}
                   alt="Blondie Logo"

@@ -2,7 +2,7 @@ import { useState } from "react";
 function Proiect(props) {
   return (
     <div className="flex items-center justify-start md:flex-row flex-col hover:scale-105 duration-200 ease-in-out">
-      <div className="md:w-4/12">
+      <div>
         <div className="w-full">
           <img src={props.img} className="object-cover" />
         </div>

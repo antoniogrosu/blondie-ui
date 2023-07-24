@@ -26,7 +26,7 @@ function Zboruri({ flights }) {
   const renderFlightDetails = () => {
     if (selectedFlight) {
       return (
-        <div className="bg-pink-300/50 border-2 hover:pink-200 ease-in-out duration-100 border-pink-300 rounded-xl p-8 poppins">
+        <div className="w-5/12 mx-auto bg-pink-300/50 border-2 hover:pink-200 ease-in-out duration-100 border-pink-300 rounded-xl p-8 poppins">
           <h2 className="text-2xl font-semibold mb-8">Details</h2>
           <p className="mb-4">Flight ID: {selectedFlight.id}</p>
           <p className="mb-4">Date: {selectedFlight.date}</p>
